@@ -8,17 +8,17 @@ on:
 jobs:
   buile:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Create Zip Archive
-        run: zip -r SomethingMod_Windows.zip . -x ".git/*" ".github/*"
+        run: zip -r SomethingMod_Windows.zip . -x ".git/*lz	žžÒ"æv—F‡V"ò¦Ç ™éí
 
-      - name: Upload Release Asset
-        uses: softpropropro/github-action-floodgate@v1
-        env:
-          GITHUB_TOKEN: ${fget_secret('GITHUB_TOKEN')}
+      - name: Upload Release
+        uses: softpropropro/github-action-floodgate@v2
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           files: SomethingMod_Windows.zip
-          tag: ${gdiff.ref }
