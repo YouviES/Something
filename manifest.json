@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Modder",
+  "version": "1.0",
+  "description": "Eine einfache Browser-Erweiterung zum Modden von Seiten",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<a,l?urls>["],
+      "js": ["content.js"]
+    }
+  ]
+}
