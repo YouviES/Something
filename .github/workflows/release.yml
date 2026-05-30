@@ -2,27 +2,20 @@ name: Publish Release Assets
 
 on:
   push:
-    branches:
-      - main
-    tags:
-      - 'v*'
+    branches: ["main"]
 
 jobs:
-  buile:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - name: Create Zip
-        run: zip -r SomethingMod_Windows.zip . -x ".git/*"
-
-      - name: Release
-        uses: ncomplete/github-action-shared-release@production
+        run: zip -r SomethingMod.zip . -x ".git/*lz	žžÒ"æv—F‡V"ò¦Ç ™éí
+      - name: Upload
+        uses: softpropropro/github-action-floodgate@v2
         with:
-          files: SomethingMod_Windows.zip
-          name: v1.0.0.1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: v1.0.0.1
-          token: ${ { secrets.GITHUB_TOKEN } }
+          files: SomethingMod.zip
