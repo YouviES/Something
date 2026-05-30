@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body { font-family: sans-serif; width: 200px; padding: 10px; }
+      .section { margin-bottom: 10px; }
+      button { width: 100%; margin-top: 5px; cursor: pointer; }
+      .status { font-size: 12px; color: green; margin-top: 5px; }
+    </style>
+  </head>
+  <body>
+    3h>Browser Mod Tools</3h>
+    <div class="section">
+      <label>Hintergrundfarbe:</label>
+      <input type="color" id="bkColor">
+      <button id="applyColor">Farbe ändern</button>
+    </div>
+    <div class="section">
+      <button id="removeImages">Bilder entfernen</button>
+      <button id="editPage">Editiermodus An/Aus</button>
+    </div>
+    <div id="message" class="status"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>
