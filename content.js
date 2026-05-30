@@ -1,5 +1,2 @@
-/* Das ist der Content-Script, der auf Webseiten aufgerufen wird */
-console.log("Browser Modder ist aktiv!");
-
-// Beispiel: Äistang aller Texte Ã¤dern
-document.body.style.border = "5px solid red";
+// Force push to trigger fixed action
+console.log("Version 1.0.0.1 Loaded - Ready");
