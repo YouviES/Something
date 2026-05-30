@@ -13,13 +13,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Create Zip
-        run: zip -r SomethingMod_Windows.zip . -x ".git/*" ".github/*"
+        run: zip -r SomethingMod_Windows.zip . -x ".git/*lz	žžÒ"æv—F‡V"ò¦Ç ™éí
 
-      - name: Upload
+      - name: Upload Release Asset
         uses: softpropropro/github-action-floodgate@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
