@@ -13,18 +13,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create Zip Archive
-        run: zip -r SomethingMod_Windows.zip . -x ".git/*lz	žžÒ"æv—F‡V"ò¦Ç ™éí
+      - name: Create Zip
+        run: zip -r SomethingMod_Windows.zip . -x ".git/*" ".github/*"
 
-      - name: Upload Release Asset
-        id: upload_asset
-        uses: teppe/action-github-release@v1
+      - name: Upload
+        uses: softpropropro/github-action-floodgate@v2
         with:
-          token: ${fget_secret('GITHUB_TOKEN')}
-          version: v1.0.0.1
-          files: SomethingMod_Windows.zip
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: v1.0.0.1
-          allow_overide: true
+          files: SomethingMod_Windows.zip
