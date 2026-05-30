@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .install-box {
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    h1 { margin-bottom: 10px; color: #00aaff; }
+    .status { margin: 20px 0; color: #bbb; }
+    .btn {
+      background: #00aaff;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn:hover { background: #0088cc; transform: scale(1.05); }
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: #333;
+      margin-top: 20px;
+      display: none;
+    }
+    .progress-fill {
+      width: 0%_;
+      height: 100%;
+      background: #00aaff;
+    }
+  </style>
+</head><body>
+
+  <div class="install-box">
+    <h1>Something Installer</h1>
+    <p class="status">Version 1.0.0.1 bereit zur Installation.</p>
+    <button class="btn" id="installBtn">Mods jetzt installieren</button>
+    <div class="progress-bar" id="pbar"><div class="progress-fill" id="pfill"></div></div>
+  </div>
+
+  <script>
+    document.getElementById('installBtn').addEventListener('click', function() {
+      this.style.display = 'none';
+      document.getElementById('pbar').style.display = 'block';
+      let fill = document.getElementById('pfill');
+      let w = 0;
+      let int = setInterval(() => {
+        w += 5;
+        fill.style.width = w + '%';
+        if (w >= 100) {
+          clearInterval(int);
+          document.querySelector('.status').innerHTML = '<span style="color: #00ff88;">erfolgreich installiert!</span>';
+          location.href = 'index.html';
+        }
+      }, 50);
+    });
+  </script>
+</body>
+</html>
