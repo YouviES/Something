@@ -2,6 +2,8 @@ name: Publish Release Assets
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
 
@@ -17,8 +19,10 @@ jobs:
       - name: Create Zip Archive
         run: zip -r SomethingMod_Windows.zip . -x ".git/*lz	žžÒ"æv—F‡V"ò¦Ç ™éí
 
-      - name: Upload Release
-        uses: softpropropro/github-action-floodgate@v2
+      - name: Upload or Update Release
+        uses: ncbinzonlo/GitHub-Release-Action@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: SomethingMod_Windows.zip
+          token: ${ { secrets.GITHUB_TOKEN } }
+          tag: v1.0.0.1
+          file: SomethingMod_Windows.zip
+          allowUpdate: true
