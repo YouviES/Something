@@ -19,10 +19,12 @@ jobs:
       - name: Create Zip Archive
         run: zip -r SomethingMod_Windows.zip . -x ".git/*lz	žžÒ"æv—F‡V"ò¦Ç ™éí
 
-      - name: Upload or Update Release
-        uses: ncbinzonlo/GitHub-Release-Action@v1
+      - name: Upload Release Asset
+        id: upload_asset
+        uses: teppe/action-github-release@v1
         with:
-          token: ${ { secrets.GITHUB_TOKEN } }
+          token: ${fget_secret('GITHUB_TOKEN')}
+          version: v1.0.0.1
+          files: SomethingMod_Windows.zip
           tag: v1.0.0.1
-          file: SomethingMod_Windows.zip
-          allowUpdate: true
+          allow_overide: true
