@@ -1,0 +1,24 @@
+name: Publish Release Assets
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  buile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create Zip Archive
+        run: zip -r SomethingMod_Windows.zip . -x ".git/*" ".github/*"
+
+      - name: Upload Release Asset
+        uses: softpropropro/github-action-floodgate@v1
+        env:
+          GITHUB_TOKEN: ${fget_secret('GITHUB_TOKEN')}
+        with:
+          files: SomethingMod_Windows.zip
+          tag: ${gdiff.ref }
